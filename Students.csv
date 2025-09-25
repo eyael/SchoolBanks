@@ -1,0 +1,9 @@
+StudentNumber,FirstName,LastName,Status,SISID,Grade,GraduationYear
+S1001,John,Doe,Active,,9,2028
+S1002,Jane,Smith,Active,,10,2029
+S1003,Michael,Brown,Inactive,,11,2025
+S1004,Lisa,Johnson,Active,SB000001234,12,2024
+S1005,David,Wong,Active,,8,2028
+S1006,Sarah,Lee,Active,,7,2029
+S1007,Tom,Wilson,Inactive,,10,2026
+S1008,Emma,Taylor,Active,,9,2027

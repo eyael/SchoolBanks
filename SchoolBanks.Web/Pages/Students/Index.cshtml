@@ -1,0 +1,56 @@
+﻿@page
+@model SchoolBanks.Web.Pages.Students.IndexModel
+@{
+    ViewData["Title"] = "Students";
+}
+
+<h1>Students</h1>
+
+<!-- Filter form -->
+<form method="get">
+    <input type="text" asp-for="Name" placeholder="Name" />
+    <input type="number" asp-for="Grade" placeholder="Grade" />
+    <input type="text" asp-for="Status" placeholder="Status" />
+    <button type="submit">Filter</button>
+</form>
+
+<!-- Export CSV link that preserves current filters -->
+<a asp-page-handler="Export"
+   asp-route-Name="@Model.Name"
+   asp-route-Grade="@Model.Grade"
+   asp-route-Status="@Model.Status">
+    Export CSV
+</a>
+
+
+<!-- Import CSV form -->
+<form method="post" asp-page-handler="Import" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+    <input type="file" asp-for="UploadFile" />
+    <button type="submit">Import CSV</button>
+</form>
+
+<!-- Students table -->
+<table>
+    <thead>
+        <tr>
+            <th>Student Number</th>
+            <th>Name</th>
+            <th>Grade</th>
+            <th>Status</th>
+            <th>Graduation Year</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.Students)
+        {
+            <tr>
+                <td>@s.StudentNumber</td>
+                <td>@s.Name</td>
+                <td>@s.Grade</td>
+                <td>@s.Status</td>
+                <td>@s.GraduationYear</td>
+            </tr>
+        }
+    </tbody>
+</table>
